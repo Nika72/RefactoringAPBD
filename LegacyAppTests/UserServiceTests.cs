@@ -15,30 +15,30 @@ namespace LegacyAppTests
         [Fact]
         public void AddUser_Should_Return_False_When_Missing_FirstName()
         {
-            // Act
+            
             var result = _userService.AddUser(null, null, "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
 
-            // Assert
+            
             Assert.False(result);
         }
 
         [Fact]
         public void AddUser_Should_Return_False_When_Missing_At_Sign_And_Dot_In_Email()
         {
-            // Act
+            
             var result = _userService.AddUser("John", "Doe", "kowalskiwppl", new DateTime(1980, 1, 1), 1);
 
-            // Assert
+            
             Assert.False(result);
         }
 
         [Fact]
         public void AddUser_Should_Return_False_When_Younger_Than_21_Years_Old()
         {
-            // Act
+            
             var result = _userService.AddUser("John", "Doe", "kowalski@wp.pl", new DateTime(2010, 1, 1), 1);
 
-            // Assert
+            
             Assert.False(result);
         }
 
@@ -48,27 +48,27 @@ namespace LegacyAppTests
         [InlineData("John", "Kwiatkowski", "kwiatkowski@wp.pl", 5)]
         public void AddUser_Should_Return_True_For_Valid_Clients(string firstName, string lastName, string email, int clientId)
         {
-            // Act
+            
             var result = _userService.AddUser(firstName, lastName, email, new DateTime(1980, 1, 1), clientId);
 
-            // Assert
+            
             Assert.True(result);
         }
 
         [Fact]
         public void AddUser_Should_Return_False_For_Normal_Client_With_No_Credit_Limit()
         {
-            // Act
+            
             var result = _userService.AddUser("John", "Kowalski", "kowalski@wp.pl", new DateTime(1980, 1, 1), 1);
 
-            // Assert
+            
             Assert.False(result);
         }
 
         [Fact]
         public void AddUser_Should_Throw_Exception_When_User_Does_Not_Exist()
         {
-            // Act and Assert
+            
             Assert.Throws<ArgumentException>(() =>
             {
                 _ = _userService.AddUser("John", "Unknown", "kowalski@wp.pl", new DateTime(1980, 1, 1), 100);
@@ -78,7 +78,7 @@ namespace LegacyAppTests
         [Fact]
         public void AddUser_Should_Throw_Exception_When_User_No_Credit_Limit_Exists_For_User()
         {
-            // Act and Assert
+            
             Assert.Throws<ArgumentException>(() =>
             {
                 _ = _userService.AddUser("John", "Andrzejewicz", "andrzejewicz@wp.pl", new DateTime(1980, 1, 1), 6);
