@@ -8,7 +8,7 @@ namespace LegacyApp
     {
         private readonly IDictionary<int, Client> _database;
 
-        // Constructor to initialize the database
+        
         public ClientRepository()
         {
             _database = new Dictionary<int, Client>()
@@ -21,10 +21,7 @@ namespace LegacyApp
                 {6, new Client{ClientId = 6, Name = "Andrzejewicz", Address = "Warszawa, Koszykowa 52", Email = "andrzejewicz@wp.pl", Type = "NormalClient"}}
             };
         }
-        /// <summary>
-        /// Simulating fetching a client from remote database
-        /// </summary>
-        /// <returns>Returning client object</returns>
+       
         public Client GetById(int clientId)
         {
             int randomWaitTime = new Random().Next(2000);
