@@ -8,7 +8,7 @@ namespace LegacyApp
     {
         private readonly IDictionary<string, int> _database;
 
-        // Constructor to initialize database
+        
         public UserCreditService()
         {
             _database = new Dictionary<string, int>()
@@ -21,10 +21,10 @@ namespace LegacyApp
             };
         }
 
-        // Method to simulate contact with remote service and get client's credit limit
+        
         public int GetCreditLimit(string lastName, DateTime dateOfBirth)
         {
-            // Simulate delay
+            
             int randomWaitingTime = new Random().Next(3000);
             Thread.Sleep(randomWaitingTime);
 
@@ -36,10 +36,10 @@ namespace LegacyApp
             throw new ArgumentException($"Client {lastName} does not exist");
         }
 
-        // Dispose method to release resources
+       
         public void Dispose()
         {
-            // Simulate disposing of resources
+          
         }
     }
 }
